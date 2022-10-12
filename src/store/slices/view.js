@@ -1,8 +1,10 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { mockComments } from "../api";
 
 export const name = "view";
 const initialState = {
   commentsModalOpen: false,
+  comments: mockComments,
 };
 
 const viewSlice = createSlice({
@@ -15,6 +17,18 @@ const viewSlice = createSlice({
     closeCommentsModal(state) {
       state.commentsModalOpen = false;
     },
+    addComment(state, typeAndPayload) {
+      let commentsFromState = state.comments;
+      let comment = typeAndPayload.payload;
+      comment.id = commentsFromState.length + 1;
+
+      commentsFromState.push(comment);
+      state.comments = [...commentsFromState];
+    },
+    loadCommentsFromServer(state, typeAndPayload) {
+      let newComments = typeAndPayload.payload;
+      state.comments = [...newComments];
+    },
   },
 });
 
@@ -25,5 +39,12 @@ export const getViewCommentsModalOpen = createSelector(
   (slice) => slice.commentsModalOpen
 );
 
-export const { openCommentsModal, closeCommentsModal } = viewSlice.actions;
+export const getComments = createSelector(getSlice, (slice) => slice.comments);
+
+export const {
+  openCommentsModal,
+  closeCommentsModal,
+  addComment,
+  loadCommentsFromServer,
+} = viewSlice.actions;
 export default viewSlice.reducer;
