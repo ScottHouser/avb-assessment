@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+import "app/App.css";
 
 const useStyles = makeStyles((theme) => ({
   centered: {
@@ -48,7 +49,7 @@ function Comments(props) {
         return (
           <Grid
             key={comment.id}
-            className={classes.extraBottomMargin}
+            className={`${classes.extraBottomMargin} comment-container-animation`}
             container
             spacing={1}
           >
