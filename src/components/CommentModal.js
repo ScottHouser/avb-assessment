@@ -53,6 +53,7 @@ const CommentModal = () => {
 
   const handleClose = () => dispatch(closeCommentsModal());
 
+  //submitting comment through redux
   const submitFunction = () => {
     let nameFromState = name;
     let commentFromState = comment;
@@ -76,6 +77,7 @@ const CommentModal = () => {
     setComment(value);
   };
 
+  //making sure input has first and last name and comment content
   const isButtonDisabled = () => {
     let nameIsCorrect = () => {
       if (name.split(" ").length < 2) {

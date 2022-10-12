@@ -27,6 +27,17 @@ As a user, I would like to be able to read a list of comments, add a comment, an
 * https://redux-toolkit.js.org/
 * https://jsonplaceholder.typicode.com/comments
 
+### Summary
+
+This app meets the above listed requirements, allowing a user to write comments, read comments, and see the top 3 commentors.
+
+The app relies on the default Material UI theme and uses redux logic to manage state accross the app. Responsive design allows the app to function on any screen size.
+
+There were some inconsistancies between the api data and the dummy data. Since the dummy data did not have user ids or emails, I decided to sort by name. I wanted the app to work even if the api could not be accessed. Idealy users would have unique identifiers and not just names. 
+
+Since the api data is all unique user names, you will have to add some comments to see your name in the rankings. Currently each user only has one comment. If you disable your internet, you will see the app work with the dummy data.
+
+
 
 # Getting Started with Create React App
 

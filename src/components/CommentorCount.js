@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 function CommentorCount(props) {
   const classes = useStyles();
 
+  //mapping top commentors into UI components
   const returnTopCommentors = () => {
     return props.topCommentors.map((commentor) => {
       return (

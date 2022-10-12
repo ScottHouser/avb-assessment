@@ -41,6 +41,7 @@ function App() {
   const dispatch = useDispatch();
   const classes = useStyles();
 
+  //calling api for comments when component mounts
   useEffect(() => {
     let mounted = true;
     getCommentsFromServer()
@@ -55,6 +56,10 @@ function App() {
     return () => (mounted = false);
   }, []);
 
+  //the code below agregates the top 3 commentors by name. There was some inconsistancy between the dummy data and the api data
+  //I chose name as the key by which to sort since the dummy data did not have emails or Ids. I wanted it to work for both.
+  //the api has only unique names, so you will have to write comments to see this work
+  //only running this sort when comments changes
   useEffect(() => {
     const commentMap = {};
     const sortedCommentMap = [];

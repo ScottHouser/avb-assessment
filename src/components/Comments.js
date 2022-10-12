@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 function Comments(props) {
   const classes = useStyles();
 
+  //mapping comments into ui components
   const returnComments = () => {
     if (props?.comments) {
       let commentsFromProps = [...props.comments];
